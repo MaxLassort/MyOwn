@@ -1,0 +1,22 @@
+# Godot
+.import/
+.godot/
+
+# C# / .NET
+.mono/
+bin/
+obj/
+.vs/
+*.tmp
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS
+.DS_Store
+Thumbs.db

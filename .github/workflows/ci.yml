@@ -1,0 +1,64 @@
+name: Build MyOwn Application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs: 
+  build-godot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '8.0.x'
+          
+      - name: Install Godot
+        run: |
+          export GODOT_VERSION="3.6.2"
+          echo "Downloading Godot ${GODOT_VERSION} Server version..."
+          
+          
+          wget -q https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_linux_server_64.zip
+          unzip -q Godot_v${GODOT_VERSION}-stable_mono_linux_server_64.zip
+          chmod +x Godot_v${GODOT_VERSION}-stable_mono_linux_server_64/Godot_v${GODOT_VERSION}-stable_mono_linux_server.64
+          
+          # Templates
+          wget -q https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz
+          mkdir -p ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono
+          unzip -q Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz
+          cp -r templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono/
+
+      - name: Build C# project
+        run: |
+          export GODOT_VERSION="3.6.2"
+          echo "Building C# project..."
+          ./Godot_v${GODOT_VERSION}-stable_mono_linux_server_64/Godot_v${GODOT_VERSION}-stable_mono_linux_server.64 \
+            --path godot \
+            --build-solutions \
+            --quit
+          echo "C# project built."
+
+      - name: Export to Web (Debug)
+        run: |         
+          export GODOT_VERSION="3.6.2"
+          echo "Exporting to HTML5..."
+    
+          ./Godot_v${GODOT_VERSION}-stable_mono_linux_server_64/Godot_v${GODOT_VERSION}-stable_mono_linux_server.64 \
+            --path godot \
+            --export "HTML5" \
+            --quit
+    
+          echo "Export completed! Files in godot/export/:"
+              
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-html5-build
+          path: godot/export/
+          retention-days: 7
