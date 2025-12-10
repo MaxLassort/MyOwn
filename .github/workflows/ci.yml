@@ -17,7 +17,22 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
-          
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: 'npm'
+          cache-dependency-path: 'angular/package-lock.json'
+
+      # ==================== ANGULAR SETUP ====================
+      - name: Install Angular dependencies
+        working-directory: ./angular
+        run: |
+          npm install
+          echo "Angular dependencies installed!"
+
+      # ==================== GODOT SETUP ====================
       - name: Install Godot
         run: |
           export GODOT_VERSION="3.6.2"
@@ -33,7 +48,8 @@ jobs:
           mkdir -p ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono
           unzip -q Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz
           cp -r templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono/
-
+      
+      # ==================== GODOT BUILD ====================
       - name: Build C# project
         run: |
           export GODOT_VERSION="3.6.2"
@@ -44,18 +60,30 @@ jobs:
             --quit
           echo "C# project built."
 
+      # ==================== GODOT EXPORT ====================
       - name: Export to Web (Debug)
         run: |         
           export GODOT_VERSION="3.6.2"
-          echo "Exporting to HTML5..."
-    
+          echo "Exporting Godot directly to Angular assets..."
+
+          mkdir -p angular-cv/src/assets/godot-game
+
           ./Godot_v${GODOT_VERSION}-stable_mono_linux_server_64/Godot_v${GODOT_VERSION}-stable_mono_linux_server.64 \
-            --path godot \
-            --export "HTML5" \
-            --quit
-    
-          echo "Export completed! Files in godot/export/:"
-              
+          --path godot \
+          --export "HTML5" \
+          angular-cv/src/assets/godot-game/MyOwn.html \
+          --quit
+          
+          echo "Godot exported directly to Angular!"
+          echo "Generated files in Angular:"
+             
+      - name: Build Angular Application
+        working-directory: ./angular
+        run: |
+          echo "Building Angular application..."
+          npm run build
+          echo "Angular application built."
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
