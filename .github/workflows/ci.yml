@@ -29,8 +29,9 @@ jobs:
       - name: Install Angular dependencies
         working-directory: ./angular
         run: |
-          npm install
-          echo "Angular dependencies installed!"
+          npm ci 
+          npm install @netlify/angular-runtime@latest
+          echo "Angular + Netlify runtime installed!"
 
       # ==================== GODOT SETUP ====================
       - name: Install Godot
@@ -61,7 +62,7 @@ jobs:
           echo "C# project built."
 
       # ==================== GODOT EXPORT ====================
-      - name: Export to Web (Debug)
+      - name: Export to Web
         run: |         
           export GODOT_VERSION="3.6.2"
           echo "Exporting Godot directly to Angular assets..."
@@ -84,9 +85,25 @@ jobs:
           npm run build
           echo "Angular application built."
 
+      # ==================== NETLIFY DEPLOY ====================
+      - name: Deploy to Netlify
+        run: |
+          cd angular
+          npm run build
+
+      - name: Netlify Deploy
+        run: |
+          npm install -g netlify-cli
+          cd angular/dist/angular/browser
+          netlify deploy --prod --dir=. --message="Deploy with runtime"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        if: github.ref == 'refs/heads/main'
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: godot-html5-build
-          path: godot/export/
+          name: angular
+          path: angular/dist/
           retention-days: 7

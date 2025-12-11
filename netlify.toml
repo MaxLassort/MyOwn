@@ -1,0 +1,21 @@
+[build]
+base = "angular"
+command = "npm install && npm run build"
+publish = "dist/angular/browser"
+
+[build.environment]
+NETLIFY_CACHE_CLEAR = "true"
+
+
+# Redirection
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# Headers
+[[headers]]
+for = "/*"
+[headers.values]
+X-XSS-Protection = "1; mode=block"
+X-Frame-Options = "SAMEORIGIN"
