@@ -84,3 +84,14 @@ sequenceDiagram
     U->>N: Visite CV
     N->>U: Angular + Godot
 ```
+
+
+#### Structure Noeud GODOT
+```Text 
+📁 Main (Node2D)
+├── 📁 Environment (Node2D)
+│   ├── 🗺️ Background (TileMap)     ← Terrain, routes
+│   ├── 🗺️ Objects (TileMap)        ← Structures, déco
+│   └── 🗺️ Foreground (TileMap)     ← Ombres, overlay
+└── 📁 Interactive (Node2D)          ← Pour plus tard
+```
