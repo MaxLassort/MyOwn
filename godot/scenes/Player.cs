@@ -21,6 +21,7 @@ public partial class Player : KinematicBody2D
         HandleInput();
         _velocity = MoveAndSlide(_velocity);
         UpdateAnimation();
+        ZIndex = (int)Position.y;
     }
     
     private void HandleInput()
