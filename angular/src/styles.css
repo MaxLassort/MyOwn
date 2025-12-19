@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+:root {
+  --primary: #3b82f6;
+  --secondary: #64748b;
+  --accent: #f59e0b;
+  --background: #f9f4f1;
+
+  --border-color: rgb(26 24 22);
+  --border-size: 1px;
+
+  --font-pixelify: 'Pixelify Sans', cursive;
+}

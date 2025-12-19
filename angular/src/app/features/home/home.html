@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="flex justify-center items-center h-screen choice--bg-colored ">
+  <div class="choice p-8">
+    <h1 class="choice__title">Hello World!</h1>
+
+    <div class="flex justify-center items-center gap-4">
+      <div class="choice__pill-wrapper" iconButton>
+        <img
+          id="blue"
+          src="assets/buttons/bluePill.svg"
+          alt="Blue Pill"
+          class="pill-logo w-32 h-32" height="31" width="25"
+        >
+      </div>
+      <div class="choice__pill-wrapper" iconButton>
+        <a [routerLink]="RouteEnum.GAME">
+          <img
+            id ="red"
+            src="assets/buttons/redPill.svg"
+            alt="red Pill"
+            class="pill-logo w-32 h-32" height="31" width="25"
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

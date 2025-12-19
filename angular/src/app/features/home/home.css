@@ -1,0 +1,50 @@
+.choice {
+  border: solid var(--border-size) var(--border-color);
+  font-family: var(--font-pixelify), serif;
+  box-shadow: 8px 8px 0 0 var(--border-color);
+}
+
+.choice--bg-colored {
+  background-color: var(--background);
+}
+
+.choice__title {
+  border-bottom: solid var(--border-size) var(--border-color);
+}
+
+.choice__pill-wrapper{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  mask: url('/assets/buttons/bluePill.svg');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+    animation: shine 2s infinite;
+    z-index: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
