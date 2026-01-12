@@ -1,0 +1,20 @@
+<div
+  data-testid="side-panel"
+  class="flex flex-col h-screen bg-stone-800 transition-all duration-500 ease-in-out"
+  [class.w-64]="isOpen()"
+  [class.w-16]="!isOpen()"
+>
+  <button
+    type="button"
+    data-testid="toggle-button"
+    class="btn btn-ghost hover:bg-stone-700 btn-sm self-end m-2"
+    (click)="toggle()"
+    [attr.aria-expanded]="isOpen()"
+    aria-label="Toggle navigation menu"
+  >
+    <span class="material-symbols-outlined text-white" aria-hidden="true">menu</span>
+  </button>
+  <div data-testid="content-area" class="flex-1 overflow-hidden">
+    <ng-content></ng-content>
+  </div>
+</div>

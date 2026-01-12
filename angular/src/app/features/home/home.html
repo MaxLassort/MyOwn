@@ -4,17 +4,19 @@
 
     <div class="flex justify-center items-center gap-4">
       <div class="choice__pill-wrapper" iconButton>
-        <img
-          id="blue"
-          src="assets/buttons/bluePill.svg"
-          alt="Blue Pill"
-          class="pill-logo w-32 h-32" height="31" width="25"
-        >
+        <a [routerLink]="RouteEnum.RESUME">
+          <img
+            id="blue"
+            src="assets/buttons/bluePill.svg"
+            alt="Blue Pill"
+            class="pill-logo w-32 h-32" height="31" width="25"
+          >
+        </a>
       </div>
       <div class="choice__pill-wrapper" iconButton>
         <a [routerLink]="RouteEnum.GAME">
           <img
-            id ="red"
+            id="red"
             src="assets/buttons/redPill.svg"
             alt="red Pill"
             class="pill-logo w-32 h-32" height="31" width="25"
