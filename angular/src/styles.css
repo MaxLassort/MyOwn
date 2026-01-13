@@ -2,8 +2,73 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
+
+/* Polices */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+
+@plugin "daisyui/theme" {
+  name: "light-custom";
+  default: true;
+  color-scheme: light;
+
+  /*   Backgrounds */
+  --color-base-100: #ffffff;
+  --color-base-200: #f2f2f2;
+  --color-base-300: #e4e6eb;
+
+  /* Texts */
+  --color-base-content: #24292e;  /* Texte principal - quasi noir */
+  --color-neutral: #737c85;       /* Texte secondaire - gris moyen */
+  --color-neutral-content: oklch(95% 0 0);
+
+  /* Primary */
+  --color-primary: #005cc5;       /* Bleu vif */
+  --color-primary-content: #ffffff;   /* Blanc sur bleu */
+  /* Border radius  */
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+}
+
+
+@plugin "daisyui/theme" {
+  name: "dark-custom";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0d0d0d; /* Background */
+  --color-base-200: #161616; /* Sidenav / Explorer */
+  --color-base-300: #2d2d2d; /* Tabs / Borders */
+
+  /* Texts */
+  --color-base-content: #ffffff;  /* Main */
+  --color-neutral: #8b99ad;       /* Secondary */
+
+  /* Primary */
+  --color-primary: #00ff41;      /* Green */
+  --color-primary-content: #ffffff;   /* White on blue */
+  /* Border radius  */
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
 }
 
 :root {
