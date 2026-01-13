@@ -1,0 +1,17 @@
+<div class="flex justify-center items-center">
+  @if(currentTheme() == 'light') {
+    <button class="btn btn-ghost hover:bg-stone-700 btn-sm" (click)="setTheme(Theme.DARK)">
+    <span class="material-symbols-outlined">
+      dark_mode
+    </span>
+    </button>
+  } @else {
+    <button class="btn btn-ghost hover:bg-stone-700 btn-sm" (click)="setTheme(Theme.LIGHT)">
+    <span class="material-symbols-outlined">
+      light_mode
+    </span>
+    </button>
+  }
+</div>
+
+
