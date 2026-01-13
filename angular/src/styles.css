@@ -34,13 +34,17 @@
   --color-base-300: #e4e6eb;
 
   /* Texts */
-  --color-base-content: #24292e;  /* Texte principal - quasi noir */
-  --color-neutral: #737c85;       /* Texte secondaire - gris moyen */
-  --color-neutral-content: oklch(95% 0 0);
+  --color-base-content: #24292e;  /* main principal */
+  --color-neutral: black;       /* Text secondary */
+  --color-neutral-content: #6a737d;
+
+  /* Accent */
+  --color-accent: #e3e3e3;
+
 
   /* Primary */
-  --color-primary: #005cc5;       /* Bleu vif */
-  --color-primary-content: #ffffff;   /* Blanc sur bleu */
+  --color-primary: #005cc5;
+  --color-primary-content: #ffffff;
   /* Border radius  */
   --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
@@ -59,10 +63,13 @@
 
   /* Texts */
   --color-base-content: #ffffff;  /* Main */
-  --color-neutral: #8b99ad;       /* Secondary */
+  --color-neutral: #1f1f1f;       /* Secondary */
+  --color-neutral-content: #8b99ad;       /* Secondary */
+
+
 
   /* Primary */
-  --color-primary: #00ff41;      /* Green */
+  --color-primary: #00ff41;
   --color-primary-content: #ffffff;   /* White on blue */
   /* Border radius  */
 
@@ -70,6 +77,17 @@
   --radius-field: 0.25rem;
   --radius-box: 0.25rem;
 }
+h1 {
+  font-size: var(--text-4xl);
+  font-family: 'JetBrains Mono', serif
+}
+h2 {
+  font-size: var(--text-2xl);
+  font-family: 'JetBrains Mono', serif
+
+}
+
+
 
 :root {
   --primary: #3b82f6;

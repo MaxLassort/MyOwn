@@ -1,23 +1,20 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Theme} from '../../../core/enums/theme.enum';
+import {ThemeService} from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-theme-selector',
   imports: [],
   templateUrl: './theme-selector.html'
 })
-export class ThemeSelector implements OnInit{
-  currentTheme = signal<Theme>(Theme.LIGHT);
+export class ThemeSelector {
   protected readonly Theme = Theme;
 
-  ngOnInit() {
-    const savedTheme = (localStorage.getItem('theme') as Theme) || Theme.LIGHT;
-    this.setTheme(savedTheme);
-  }
+  themeService = inject(ThemeService);
+
 
   setTheme(theme: Theme) {
-    this.currentTheme.set(theme);
-    document.documentElement.dataset['theme'] = theme;
-    localStorage.setItem('theme', theme);
+    this.themeService.setTheme(theme);
   }
+
 }

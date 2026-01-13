@@ -6,20 +6,25 @@
 >
   <div class="flex justify-end items-center w-full">
     <app-theme-selector></app-theme-selector>
-  <button
-    type="button"
-    data-testid="toggle-button"
-    class="btn btn-ghost hover:bg-stone-700 btn-sm self-end m-2"
-    (click)="toggle()"
-    [attr.aria-expanded]="isOpen()"
-    aria-label="Toggle navigation menu"
-  >
-    <span class="material-symbols-outlined text-white" aria-hidden="true">menu</span>
-  </button>
+    <button
+      type="button"
+      data-testid="toggle-button"
+      class="btn btn-ghost hover:bg-base-200 btn-sm self-end m-2"
+      (click)="toggle()"
+      [attr.aria-expanded]="isOpen()"
+      aria-label="Toggle navigation menu"
+    >
+
+      <span class="material-symbols-outlined " aria-hidden="true">menu</span>
+    </button>
 
   </div>
-
-  <div data-testid="content-area" class="flex-1 overflow-hidden">
-    <ng-content></ng-content>
-  </div>
+  @if (isOpen()) {
+    <div data-testid="content-area" class="flex justify-center items-center w-full"
+         animate.enter="enter-animation"
+         animate.leave="leave-animation"
+    >
+      <app-navigation></app-navigation>
+    </div>
+  }
 </div>

@@ -1,0 +1,57 @@
+<div class="flex flex-col gap-2 w-full">
+  <h2> Navigation</h2>
+  <ul ngTree #tree="ngTree" [nav]="true" [(values)]="selected" class="flex flex-col
+  basic-tree">
+    <ng-template
+      [ngTemplateOutlet]="treeNodes"
+      [ngTemplateOutletContext]="{nodes: nodes, parent: tree, level: 0}"
+    />
+  </ul>
+  <ng-template #treeNodes let-nodes="nodes" let-parent="parent" let-level="level">
+    <div class="flex flex-col gap-2 ">
+      @for (node of nodes; track node.value) {
+        <a
+          ngTreeItem
+          [parent]="parent"
+          [value]="node.value"
+          [label]="node.name"
+          [disabled]="node.disabled"
+          [(expanded)]="node.expanded"
+          #treeItem="ngTreeItem"
+          [routerLink]="node.children ? null : node.value"
+          (click)="$event.preventDefault()"
+          [class.hover:bg-accent]="!node.disabled"
+          [class.opacity-75]="node.disabled"
+          [class.cursor-default]="node.disabled"
+          [style.padding-left.rem]="level * 1.5 + 1"
+          class="flex font-mono"
+        >
+      <span
+        aria-hidden="true"
+        class="material-symbols-outlined mr-2 nav-icon"
+        translate="no"
+        [class.text-amber-600]="!this.themeService.isDark()"
+      >{{ node.icon }}
+      </span>
+          {{ node.name }}
+          <span aria-hidden="true" class="material-symbols-outlined expand-icon " translate="no">
+            {{
+              node.children ? 'keyboard_arrow_down' : ''
+            }}
+          </span>
+        </a>
+        @if (node.children) {
+          <ul role="group" class="w-full">
+            <ng-template ngTreeItemGroup [ownedBy]="treeItem" #group="ngTreeItemGroup">
+              <ng-template
+                [ngTemplateOutlet]="treeNodes"
+                [ngTemplateOutletContext]="{nodes: node.children, parent: group, level: level + 1}"
+              />
+            </ng-template>
+          </ul>
+        }
+      }
+    </div>
+  </ng-template>
+
+</div>

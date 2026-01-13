@@ -1,4 +1,4 @@
-import { ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
+import {ComponentHarness} from '@angular/cdk/testing';
 
 export class SidePanelHarness extends ComponentHarness {
   static hostSelector = 'app-side-panel';

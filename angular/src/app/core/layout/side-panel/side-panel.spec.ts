@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SidePanel} from './side-panel';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {SidePanelHarness} from './side-panel.harness';
+import {provideRouter} from '@angular/router';
 
   describe('SidePanel', () => {
     let fixture: ComponentFixture<SidePanel>;
@@ -9,7 +10,8 @@ import {SidePanelHarness} from './side-panel.harness';
 
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        imports: [SidePanel]
+        imports: [SidePanel],
+        providers: [provideRouter([])],
       }).compileComponents();
 
       fixture = TestBed.createComponent(SidePanel);

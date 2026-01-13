@@ -1,88 +1,92 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { ThemeSelector } from './theme-selector';
+import { ThemeSelectorHarness } from './theme-selector.harness';
+import { ThemeService } from '../../../core/services/theme.service';
 import { Theme } from '../../../core/enums/theme.enum';
-import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { Component, signal } from '@angular/core';
+
+// Mock ThemeService
+const mockThemeService = {
+  theme: signal(Theme.LIGHT),
+  setTheme: vi.fn(),
+  isDark: vi.fn(() => false),
+};
+
+@Component({
+  template: '<app-theme-selector></app-theme-selector>',
+  imports: [ThemeSelector]
+})
+class TestHostComponent {}
 
 describe('ThemeSelector', () => {
-  let component: ThemeSelector;
-  let fixture: ComponentFixture<ThemeSelector>;
-
-  // Mock localStorage
-  const localStorageMock = (() => {
-    let store: { [key: string]: string } = {};
-    return {
-      getItem: vi.fn((key: string) => store[key] || null),
-      setItem: vi.fn((key: string, value: string) => {
-        store[key] = value.toString();
-      }),
-      removeItem: vi.fn((key: string) => {
-        delete store[key];
-      }),
-      clear: vi.fn(() => {
-        store = {};
-      }),
-    };
-  })();
+  let fixture: ComponentFixture<TestHostComponent>;
+  let harness: ThemeSelectorHarness;
+  let themeService: ThemeService;
 
   beforeEach(async () => {
-    // Replace global localStorage with mock
-    Object.defineProperty(window, 'localStorage', {
-      value: localStorageMock,
-    });
-
-    // Reset mock calls and store before each test
-    localStorageMock.clear();
+    // Reset mocks before each test
     vi.clearAllMocks();
+    mockThemeService.theme.set(Theme.LIGHT); // Reset to default state
 
     await TestBed.configureTestingModule({
-      imports: [ThemeSelector]
-    })
-    .compileComponents();
+      imports: [ThemeSelector, TestHostComponent],
+      providers: [
+        { provide: ThemeService, useValue: mockThemeService }
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(ThemeSelector);
-    component = fixture.componentInstance;
-  });
+    fixture = TestBed.createComponent(TestHostComponent);
+    themeService = TestBed.inject(ThemeService); // Get the mocked service instance
 
-  afterEach(() => {
-    document.documentElement.removeAttribute('data-theme');
+    const loader = TestbedHarnessEnvironment.loader(fixture);
+    harness = await loader.getHarness(ThemeSelectorHarness);
   });
 
   it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should initialize with default theme (LIGHT) if localStorage is empty', () => {
+  it('should display the dark mode icon when the theme is LIGHT', async () => {
+    // Given: The theme service reports LIGHT theme
+    mockThemeService.theme.set(Theme.LIGHT);
     fixture.detectChanges();
-    expect(component.currentTheme()).toBe(Theme.LIGHT);
-    expect(document.documentElement.dataset['theme']).toBe(Theme.LIGHT);
+
+    // Then: The button should show the 'dark_mode' icon
+    expect(await harness.getIconName()).toBe('dark_mode');
   });
 
-  it('should initialize with saved theme from localStorage', () => {
-    localStorageMock.getItem.mockReturnValue(Theme.DARK);
-
-    // Re-create component to trigger ngOnInit with mocked value
-    fixture = TestBed.createComponent(ThemeSelector);
-    component = fixture.componentInstance;
+  it('should display the light mode icon when the theme is DARK', async () => {
+    // Given: The theme service reports DARK theme
+    mockThemeService.theme.set(Theme.DARK);
     fixture.detectChanges();
 
-    expect(component.currentTheme()).toBe(Theme.DARK);
-    expect(document.documentElement.dataset['theme']).toBe(Theme.DARK);
+    // Then: The button should show the 'light_mode' icon
+    expect(await harness.getIconName()).toBe('light_mode');
   });
 
-  it('should update theme, localStorage, and document attribute when setTheme is called', () => {
+  it('should call ThemeService.setTheme with DARK when toggled from LIGHT', async () => {
+    // Given: The theme is LIGHT
+    mockThemeService.theme.set(Theme.LIGHT);
     fixture.detectChanges();
 
-    component.setTheme(Theme.DARK);
+    // When: The user clicks the toggle button
+    await harness.toggleTheme();
 
-    expect(component.currentTheme()).toBe(Theme.DARK);
-    expect(window.localStorage.setItem).toHaveBeenCalledWith('theme', Theme.DARK);
-    expect(document.documentElement.dataset['theme']).toBe(Theme.DARK);
+    // Then: The service's setTheme method should be called with DARK
+    expect(themeService.setTheme).toHaveBeenCalledWith(Theme.DARK);
+  });
 
-    component.setTheme(Theme.LIGHT);
+  it('should call ThemeService.setTheme with LIGHT when toggled from DARK', async () => {
+    // Given: The theme is DARK
+    mockThemeService.theme.set(Theme.DARK);
+    fixture.detectChanges();
 
-    expect(component.currentTheme()).toBe(Theme.LIGHT);
-    expect(window.localStorage.setItem).toHaveBeenCalledWith('theme', Theme.LIGHT);
-    expect(document.documentElement.dataset['theme']).toBe(Theme.LIGHT);
+    // When: The user clicks the toggle button
+    await harness.toggleTheme();
+
+    // Then: The service's setTheme method should be called with LIGHT
+    expect(themeService.setTheme).toHaveBeenCalledWith(Theme.LIGHT);
   });
 });
