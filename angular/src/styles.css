@@ -78,25 +78,20 @@
   --radius-box: 0.25rem;
 }
 h1 {
-  font-size: var(--text-4xl);
   font-family: 'JetBrains Mono', serif
 }
 h2 {
-  font-size: var(--text-2xl);
   font-family: 'JetBrains Mono', serif
-
+}
+p{
+  font-family: 'JetBrains Mono', serif
+}
+strong {
+  color: var( --color-primary)
 }
 
 
 
 :root {
-  --primary: #3b82f6;
-  --secondary: #64748b;
-  --accent: #f59e0b;
-  --background: #f9f4f1;
-
-  --border-color: rgb(26 24 22);
-  --border-size: 1px;
-
   --font-pixelify: 'Pixelify Sans', cursive;
 }

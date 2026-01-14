@@ -1,30 +1,32 @@
-<div
-  data-testid="side-panel"
-  class="flex flex-col h-screen bg-base-200 border-r border-base-300 transition-all duration-500 ease-in-out"
-  [class.w-64]="isOpen()"
-  [class.w-16]="!isOpen()"
->
-  <div class="flex justify-end items-center w-full">
-    <app-theme-selector></app-theme-selector>
-    <button
-      type="button"
-      data-testid="toggle-button"
-      class="btn btn-ghost hover:bg-base-200 btn-sm self-end m-2"
-      (click)="toggle()"
-      [attr.aria-expanded]="isOpen()"
-      aria-label="Toggle navigation menu"
-    >
+<div class="relative h-full w-16 z-50">
+  <div
+    data-testid="side-panel"
+    class="absolute top-0 left-0 flex flex-col h-full bg-base-200 border-r border-base-300 transition-all duration-500 ease-in-out overflow-hidden"
+    [class.w-64]="isOpen()"
+    [class.w-16]="!isOpen()"
+    [class.shadow-2xl]="isOpen()"
+  >
+    <div class="flex justify-end items-center w-full">
+      <button
+        type="button"
+        data-testid="toggle-button"
+        class="btn btn-ghost hover:bg-base-200 btn-sm self-end m-2"
+        (click)="toggle()"
+        [attr.aria-expanded]="isOpen()"
+        aria-label="Toggle navigation menu"
+      >
 
-      <span class="material-symbols-outlined " aria-hidden="true">menu</span>
-    </button>
+        <span class="material-symbols-outlined " aria-hidden="true">menu</span>
+      </button>
 
-  </div>
-  @if (isOpen()) {
-    <div data-testid="content-area" class="flex justify-center items-center w-full"
-         animate.enter="enter-animation"
-         animate.leave="leave-animation"
-    >
-      <app-navigation></app-navigation>
     </div>
-  }
+    @if (isOpen()) {
+      <div data-testid="content-area" class="flex justify-center items-center w-full"
+           animate.enter="enter-animation"
+           animate.leave="leave-animation"
+      >
+        <app-navigation></app-navigation>
+      </div>
+    }
+  </div>
 </div>

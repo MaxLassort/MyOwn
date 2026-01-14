@@ -18,7 +18,7 @@
           [disabled]="node.disabled"
           [(expanded)]="node.expanded"
           #treeItem="ngTreeItem"
-          [routerLink]="node.children ? null : node.value"
+          [routerLink]="node.children ? null :[`/${RouteEnum.RESUME}`, node.value]"
           (click)="$event.preventDefault()"
           [class.hover:bg-accent]="!node.disabled"
           [class.opacity-75]="node.disabled"

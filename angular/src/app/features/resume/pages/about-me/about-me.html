@@ -1,0 +1,78 @@
+<div class="flex w-full h-full justify-center items-start flex-wrap mt-8">
+  <div class="flex-auto flex flex-col justify-center items-center">
+
+
+    <app-containter [width]="'w-58 md:w-72 lg:w-110 xl:w-96'" [height]="'h-58 md:h-72 lg:h-110 xl:h-96'">
+      <figure class="diff aspect-1/1 w-54 md:70 lg:w-110 xl:w-96 h-54 md:h-70 lg:h-110 xl:h-96 rounded-md" tabindex="0">
+        <div class="diff-item-1" role="img" tabindex="0">
+          <img src="/images/classic-profile-800.webp" alt="Classic Profile">
+        </div>
+        <div class="diff-item-2" role="img">
+          <img src="/images/filtered-profile-800.webp" alt="Filtered Profile">
+        </div>
+
+        <div class="diff-resizer" [class]="resizerClasses()"> </div>
+      </figure>
+    </app-containter>
+  </div>
+  <div class="flex-auto flex flex-col justify-center items-center p-5">
+
+    <main id="about ">
+      <section class="about-me" itemscope itemtype="https://schema.org/Person">
+        <header>
+          <h1 itemprop="jobTitle" class="text-xl md:text-4xl font-bold mb-4">
+            <span class="text-primary">></span>
+            Full-Stack Developer
+            <span class="text-primary animate-pulse">|</span>
+          </h1>
+          <meta itemprop="knowsAbout"
+                content="Java, Angular, Full-Stack Development, Software Engineering, Web Development">
+        </header>
+
+        <article itemprop="description" class="text-sm md:text-base max-w-4xl mb-8 [&>p]:text-neutral-content [&>p]:text-justify">
+          <p>
+            I am a <strong>full-stack developer</strong> since 2022, specializing in
+            <strong>Java</strong> and <strong>Angular</strong>, with a strong focus on
+            <strong>code quality</strong>, best practices, and continuous learning.
+            Curious and detail-oriented, I consider software development not only as a profession,
+            but as a genuine passion and a long-term career path.
+          </p>
+          <br/>
+          <p>
+            During my studies, I hesitated between two fields that deeply interested me:
+            <strong>sports</strong> and <strong>technology</strong>. I initially chose sports,
+            a <em>childhood dream</em>, which led me to become a
+            <strong>Physical Education teacher</strong>. I obtained a
+            Master’s degree in Education (MEEF) and spent
+            three years teaching, developing strong skills in pedagogy,
+            communication, adaptability, and organization.
+          </p>
+          <br/>
+          <p>
+            Over time, I realized that my <strong>true passion </strong> lies in computer science.
+            This led me to pursue a professional transition into
+            <strong>software development</strong>, a decision that quickly proved to be the right one.
+            Since 2022, I have been working as a <strong>full-stack software developer</strong>,
+            fully engaged in building reliable, maintainable, and scalable applications.
+          </p>
+          <br/>
+          <p>
+            I place particular importance on <strong>clean code</strong>, readability,
+            maintainability, and adherence to industry best practices. I actively enjoy learning new
+            technologies, improving my technical skills, and maintaining a continuous
+            <strong>technology watch</strong> to stay aligned with modern web development standards.
+          </p>
+          <br/>
+          <p>
+            Today, I work mainly with <strong>Java</strong> on the back end and
+            <strong>Angular</strong> on the front end, while remaining open to other technologies and
+            frameworks. Alongside my professional work, I am currently pursuing an
+            <strong>Engineering degree at CNAM</strong> on my personal time, reinforcing my commitment
+            to technical excellence and continuous professional growth.
+          </p>
+        </article>
+      </section>
+    </main>
+
+  </div>
+</div>

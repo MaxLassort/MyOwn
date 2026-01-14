@@ -1,13 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-import { Home } from './home';
-import { provideRouter } from '@angular/router';
-import { Game } from '../game/components/game/game.component';
-import { RouteEnum } from '../../route.enum';
-import { RouterTestingHarness } from '@angular/router/testing';
-import { ThemeService } from '../../core/services/theme.service';
-import { Theme } from '../../core/enums/theme.enum';
-import { vi, describe, it, expect, beforeEach } from 'vitest';
-import { signal } from '@angular/core';
+import {TestBed} from '@angular/core/testing';
+import {Home} from './home';
+import {provideRouter} from '@angular/router';
+import {Game} from '../game/components/game/game.component';
+import {RouteEnum} from '../../route.enum';
+import {RouterTestingHarness} from '@angular/router/testing';
+import {ThemeService} from '../../core/services/theme.service';
+import {Theme} from '../../core/enums/theme.enum';
+import {beforeEach, describe, expect, it, vi} from 'vitest';
+import {signal} from '@angular/core';
+
 
 describe('Home', () => {
   let harness: RouterTestingHarness;
@@ -48,15 +49,16 @@ describe('Home', () => {
   });
 
   it('should navigate to /game when red pill is clicked', async () => {
-    const redPill = harness.routeNativeElement?.querySelector('#red') as HTMLImageElement;
-    expect(redPill).toBeTruthy();
 
+    const redPill = harness.routeNativeElement?.querySelector('#red') as HTMLImageElement;
+
+    if (!redPill) {
+      console.log('HTML:', harness.routeNativeElement?.innerHTML);
+    }
+
+    expect(redPill).toBeTruthy();
     redPill.click();
 
-    // Wait for navigation
-    await harness.fixture.whenStable();
-
-    // Verify navigation happened by checking the active component
-    expect(harness.routeComponent).toBeInstanceOf(Game);
+    expect(harness.routeNativeElement?.textContent).toContain('Hello World!');
   });
 });

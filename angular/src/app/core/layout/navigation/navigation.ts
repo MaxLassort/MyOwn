@@ -3,6 +3,7 @@ import {Tree, TreeItem, TreeItemGroup} from '@angular/aria/tree';
 import {NgTemplateOutlet} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {ThemeService} from '../../services/theme.service';
+import {RouteEnum} from '../../../route.enum';
 
 type TreeNode = {
   name: string;
@@ -29,7 +30,7 @@ export class Navigation {
       expanded: true,
       disabled: true,
       children: [
-        {name: 'about_me.md', value: 'folders/personal', icon: 'draft'},
+        {name: 'about_me.md', value: 'about-me', icon: 'draft'},
         {name: 'skills.json', value: 'folders/travel', icon: 'draft'},
         {name: 'education.md', value: 'folders/receipts', icon: 'draft'},
         {name: 'experience.js', value: 'folders/work', icon: 'javascript'},
@@ -37,4 +38,5 @@ export class Navigation {
     }
   ];
   readonly selected = signal(['inbox']);
+  protected readonly RouteEnum = RouteEnum;
 }
