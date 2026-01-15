@@ -1,10 +1,12 @@
 import {ChangeDetectionStrategy, Component, OnInit, signal} from '@angular/core';
 import {Containter} from '../../../../shared/components/containter/containter';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-about-me',
   imports: [
-    Containter
+    Containter,
+    NgOptimizedImage
   ],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',

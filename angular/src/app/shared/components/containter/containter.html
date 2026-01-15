@@ -1,6 +1,6 @@
 <div
   class="bg-base-200 border border-base-300 flex justify-center items-center rounded-md"
-  [class]="(width() || '') + ' ' + (height() || '')"
+  [class]="(width() || '') + ' ' + (height() || '') + ' ' + (classes() || '')"
 >
   <ng-content></ng-content>
 </div>

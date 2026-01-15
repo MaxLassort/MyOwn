@@ -1,36 +1,52 @@
 <div class="flex w-full h-full justify-center items-start flex-wrap mt-8">
   <div class="flex-auto flex flex-col justify-center items-center">
 
-
-    <app-containter [width]="'w-58 md:w-72 lg:w-110 xl:w-96'" [height]="'h-58 md:h-72 lg:h-110 xl:h-96'">
-      <figure class="diff aspect-1/1 w-54 md:70 lg:w-110 xl:w-96 h-54 md:h-70 lg:h-110 xl:h-96 rounded-md" tabindex="0">
+    <app-containter [width]="'w-58 md:w-72 lg:w-110 xl:w-120'" [height]="'h-58 md:h-72 lg:h-110 xl:h-120'">
+      <figure class="diff aspect-1/1 w-54 md:70 lg:w-110 xl:w-110 h-54 md:h-70 lg:h-110 xl:h-110 rounded-md"
+              tabindex="0">
         <div class="diff-item-1" role="img" tabindex="0">
-          <img src="/images/classic-profile-800.webp" alt="Classic Profile">
-        </div>
-        <div class="diff-item-2" role="img">
-          <img src="/images/filtered-profile-800.webp" alt="Filtered Profile">
+          <img
+            ngSrc="/images/classic-profile-800.webp"
+            width="800"
+            height="800"
+            alt="Classic Profile"
+            i18n-alt
+            priority
+          />
         </div>
 
-        <div class="diff-resizer" [class]="resizerClasses()"> </div>
+        <div class="diff-item-2" role="img">
+          <img
+            ngSrc="/images/filtered-profile-800.webp"
+            width="800"
+            height="800"
+            alt="Filtered Profile"
+            i18n-alt
+          />
+        </div>
+
+        <div class="diff-resizer" [class]="resizerClasses()"></div>
       </figure>
     </app-containter>
   </div>
-  <div class="flex-auto flex flex-col justify-center items-center p-5">
+  <div class="flex-auto flex flex-col justify-center items-center">
 
     <main id="about ">
       <section class="about-me" itemscope itemtype="https://schema.org/Person">
         <header>
           <h1 itemprop="jobTitle" class="text-xl md:text-4xl font-bold mb-4">
             <span class="text-primary">></span>
-            Full-Stack Developer
+            <ng-container i18n>Full-Stack Developer</ng-container>
             <span class="text-primary animate-pulse">|</span>
           </h1>
           <meta itemprop="knowsAbout"
-                content="Java, Angular, Full-Stack Development, Software Engineering, Web Development">
+                content="Java, Angular, Full-Stack Development, Software Engineering, Web Development"
+                i18n-content>
         </header>
 
-        <article itemprop="description" class="text-sm md:text-base max-w-4xl mb-8 [&>p]:text-neutral-content [&>p]:text-justify">
-          <p>
+        <article itemprop="description"
+                 class="text-sm md:text-base max-w-4xl mb-8 [&>p]:text-neutral-content [&>p]:text-justify">
+          <p i18n>
             I am a <strong>full-stack developer</strong> since 2022, specializing in
             <strong>Java</strong> and <strong>Angular</strong>, with a strong focus on
             <strong>code quality</strong>, best practices, and continuous learning.
@@ -38,7 +54,7 @@
             but as a genuine passion and a long-term career path.
           </p>
           <br/>
-          <p>
+          <p i18n>
             During my studies, I hesitated between two fields that deeply interested me:
             <strong>sports</strong> and <strong>technology</strong>. I initially chose sports,
             a <em>childhood dream</em>, which led me to become a
@@ -48,7 +64,7 @@
             communication, adaptability, and organization.
           </p>
           <br/>
-          <p>
+          <p i18n>
             Over time, I realized that my <strong>true passion </strong> lies in computer science.
             This led me to pursue a professional transition into
             <strong>software development</strong>, a decision that quickly proved to be the right one.
@@ -56,14 +72,14 @@
             fully engaged in building reliable, maintainable, and scalable applications.
           </p>
           <br/>
-          <p>
+          <p i18n>
             I place particular importance on <strong>clean code</strong>, readability,
             maintainability, and adherence to industry best practices. I actively enjoy learning new
             technologies, improving my technical skills, and maintaining a continuous
             <strong>technology watch</strong> to stay aligned with modern web development standards.
           </p>
           <br/>
-          <p>
+          <p i18n>
             Today, I work mainly with <strong>Java</strong> on the back end and
             <strong>Angular</strong> on the front end, while remaining open to other technologies and
             frameworks. Alongside my professional work, I am currently pursuing an
@@ -73,6 +89,39 @@
         </article>
       </section>
     </main>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-5 ">
+      <app-containter [classes]="'rounded-lg'">
+        <div class="p-4 ">
+          <p class="text-primary font-mono text-2xl font-bold">03+</p>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Years Exp</p>
+        </div>
+      </app-containter>
+      <app-containter [classes]="'rounded-lg'">
+        <div class="p-4 ">
+          <p class="text-primary font-mono text-2xl ">
+          <span class="material-symbols-outlined font-bold" style="font-variation-settings: 'wght' 900;">
+            all_inclusive
+          </span>
+          </p>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Passion</p>
+        </div>
+      </app-containter>
+      <app-containter [classes]="'rounded-lg'">
+        <div class="p-4 ">
+          <p class="text-primary font-mono text-2xl font-bold">05+</p>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Coffees / Days</p>
+        </div>
+      </app-containter>
+
+      <app-containter [classes]="'rounded-lg'">
+        <div class="p-4 ">
+          <p class="text-primary font-mono text-2xl font-bold">0</p>
+          <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">Bugs left</p>
+        </div>
+      </app-containter>
+
+    </div>
+
 
   </div>
 </div>

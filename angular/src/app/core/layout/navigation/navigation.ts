@@ -1,7 +1,8 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, inject, output, signal} from '@angular/core';
 import {Tree, TreeItem, TreeItemGroup} from '@angular/aria/tree';
 import {NgTemplateOutlet} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
+import {PAGES} from '../../config/pages.config';
 import {ThemeService} from '../../services/theme.service';
 import {RouteEnum} from '../../../route.enum';
 
@@ -16,12 +17,15 @@ type TreeNode = {
 
 @Component({
   selector: 'app-navigation',
-  imports: [Tree, TreeItem, TreeItemGroup, NgTemplateOutlet, RouterLink],
+  imports: [Tree, TreeItem, TreeItemGroup, NgTemplateOutlet, RouterLink, RouterLinkActive],
   templateUrl: './navigation.html',
   styleUrl: './navigation.css',
 })
 export class Navigation {
-  protected readonly themeService = inject(ThemeService);
+  themeService = inject(ThemeService);
+  linkClicked = output<void>();
+  protected readonly RouteEnum = RouteEnum;
+
   readonly nodes: TreeNode[] = [
     {
       name: 'src',
@@ -30,13 +34,28 @@ export class Navigation {
       expanded: true,
       disabled: true,
       children: [
-        {name: 'about_me.md', value: 'about-me', icon: 'draft'},
-        {name: 'skills.json', value: 'folders/travel', icon: 'draft'},
-        {name: 'education.md', value: 'folders/receipts', icon: 'draft'},
-        {name: 'experience.js', value: 'folders/work', icon: 'javascript'},
+        {
+          name: PAGES.ABOUT_ME.filename,
+          value: PAGES.ABOUT_ME.path,
+          icon: PAGES.ABOUT_ME.icon
+        },
+        {
+          name: PAGES.SKILLS.filename,
+          value: PAGES.SKILLS.path,
+          icon: PAGES.SKILLS.icon
+        },
+        {
+          name: PAGES.EDUCATION.filename,
+          value: PAGES.EDUCATION.path,
+          icon: PAGES.EDUCATION.icon
+        },
+        {
+          name: PAGES.EXPERIENCE.filename,
+          value: PAGES.EXPERIENCE.path,
+          icon: PAGES.EXPERIENCE.icon
+        },
       ],
     }
   ];
   readonly selected = signal(['inbox']);
-  protected readonly RouteEnum = RouteEnum;
 }

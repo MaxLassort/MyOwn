@@ -66,7 +66,8 @@
   --color-neutral: #1f1f1f;       /* Secondary */
   --color-neutral-content: #8b99ad;       /* Secondary */
 
-
+  /* Accent */
+  --color-accent: oklch(55.4% 0.046 257.417);
 
   /* Primary */
   --color-primary: #00ff41;

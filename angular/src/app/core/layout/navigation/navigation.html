@@ -18,13 +18,16 @@
           [disabled]="node.disabled"
           [(expanded)]="node.expanded"
           #treeItem="ngTreeItem"
-          [routerLink]="node.children ? null :[`/${RouteEnum.RESUME}`, node.value]"
-          (click)="$event.preventDefault()"
-          [class.hover:bg-accent]="!node.disabled"
+          [routerLink]="node.children ? null : [node.value]"
+          routerLinkActive="bg-base-300 text-primary"
+          (click)="node.children ? $event.preventDefault() : linkClicked.emit()"
+          [class.hover:bg-base-300]="!node.disabled"
+          [class.hover:text-primary]="!node.disabled"
           [class.opacity-75]="node.disabled"
           [class.cursor-default]="node.disabled"
           [style.padding-left.rem]="level * 1.5 + 1"
-          class="flex font-mono"
+          class="flex font-mono py-2"
+
         >
       <span
         aria-hidden="true"

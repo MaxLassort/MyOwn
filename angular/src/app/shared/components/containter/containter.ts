@@ -9,5 +9,6 @@ export class Containter {
 
   width = input<string | undefined>(undefined);
   height = input<string | undefined>(undefined);
+  classes = input<string | undefined>(undefined);
 
 }

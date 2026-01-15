@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1334471059312496284" datatype="html">
+        <source>Classic Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1601643428623866046" datatype="html">
+        <source>Filtered Profile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="40605728239482165" datatype="html">
+        <source>Full-Stack Developer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3308383680471839804" datatype="html">
+        <source>Java, Angular, Full-Stack Development, Software Engineering, Web Development</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5799574181630100180" datatype="html">
+        <source> I am a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>full-stack developer<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> since 2022, specializing in <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Java<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Angular<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, with a strong focus on <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>code quality<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, best practices, and continuous learning. Curious and detail-oriented, I consider software development not only as a profession, but as a genuine passion and a long-term career path. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">48,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4127309802303718754" datatype="html">
+        <source> During my studies, I hesitated between two fields that deeply interested me: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>sports<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>technology<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. I initially chose sports, a <x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>childhood dream<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/>, which led me to become a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Physical Education teacher<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. I obtained a Master’s degree in Education (MEEF) and spent three years teaching, developing strong skills in pedagogy, communication, adaptability, and organization. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">56,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7007907229107874825" datatype="html">
+        <source> Over time, I realized that my <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>true passion <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> lies in computer science. This led me to pursue a professional transition into <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>software development<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, a decision that quickly proved to be the right one. Since 2022, I have been working as a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>full-stack software developer<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, fully engaged in building reliable, maintainable, and scalable applications. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">66,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8063750761786782954" datatype="html">
+        <source> I place particular importance on <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>clean code<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, readability, maintainability, and adherence to industry best practices. I actively enjoy learning new technologies, improving my technical skills, and maintaining a continuous <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>technology watch<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> to stay aligned with modern web development standards. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">74,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3664403455112400970" datatype="html">
+        <source> Today, I work mainly with <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Java<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> on the back end and <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Angular<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> on the front end, while remaining open to other technologies and frameworks. Alongside my professional work, I am currently pursuing an <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Engineering degree at CNAM<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> on my personal time, reinforcing my commitment to technical excellence and continuous professional growth. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/resume/pages/about-me/about-me.html</context>
+          <context context-type="linenumber">81,86</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

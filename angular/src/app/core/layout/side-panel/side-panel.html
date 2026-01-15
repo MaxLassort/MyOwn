@@ -25,7 +25,7 @@
            animate.enter="enter-animation"
            animate.leave="leave-animation"
       >
-        <app-navigation></app-navigation>
+        <app-navigation (linkClicked)="toggle()"></app-navigation>
       </div>
     }
   </div>

@@ -3,3 +3,6 @@ export enum RouteEnum {
   RESUME = 'resume',
   HOME = ''
 }
+export enum ResumeRoutesEnum {
+  ABOUT_ME = 'about-me'
+}
