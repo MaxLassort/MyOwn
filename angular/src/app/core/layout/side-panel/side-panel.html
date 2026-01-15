@@ -1,16 +1,23 @@
-<div class="relative h-full w-16 z-50">
+<div class="relative h-full w-0 md:w-16 z-50">
   <div
     data-testid="side-panel"
-    class="absolute top-0 left-0 flex flex-col h-full bg-base-200 border-r border-base-300 transition-all duration-500 ease-in-out overflow-hidden"
+    class="absolute top-0 left-0 flex flex-col transition-all duration-500 ease-in-out overflow-hidden
+           md:h-full md:bg-base-200 md:border-r md:border-base-300"
     [class.w-64]="isOpen()"
     [class.w-16]="!isOpen()"
     [class.shadow-2xl]="isOpen()"
+    [class.h-full]="isOpen()"
+    [class.bg-base-200]="isOpen()"
+    [class.border-r]="isOpen()"
+    [class.border-base-300]="isOpen()"
+    [class.h-auto]="!isOpen()"
   >
-    <div class="flex justify-end items-center w-full">
+    <div class="flex items-center w-full mt-2" [class.justify-end]="isOpen()" [class.justify-center]="!isOpen()">
       <button
         type="button"
         data-testid="toggle-button"
-        class="btn btn-ghost hover:bg-base-200 btn-sm self-end m-2"
+        class="btn btn-ghost hover:bg-base-200 btn-sm"
+        [class.mr-2]="isOpen()"
         (click)="toggle()"
         [attr.aria-expanded]="isOpen()"
         aria-label="Toggle navigation menu"
@@ -21,7 +28,7 @@
 
     </div>
     @if (isOpen()) {
-      <div data-testid="content-area" class="flex justify-center items-center w-full"
+      <div data-testid="content-area" class="flex justify-center items-center w-full mt-4"
            animate.enter="enter-animation"
            animate.leave="leave-animation"
       >

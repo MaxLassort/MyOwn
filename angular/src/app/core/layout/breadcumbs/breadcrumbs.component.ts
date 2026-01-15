@@ -4,7 +4,7 @@ import {toSignal} from '@angular/core/rxjs-interop';
 import {filter, map} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-breadcumbs',
+  selector: 'app-breadcrumbs',
   imports: [],
   templateUrl: './breadcrumbs.component.html',
   styleUrl: './breadcrumbs.component.css',

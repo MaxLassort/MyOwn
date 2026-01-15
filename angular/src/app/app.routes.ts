@@ -6,6 +6,7 @@ import {MainLayout} from './core/layout/main-layout/main-layout';
 import {AboutMe} from './features/resume/pages/about-me/about-me';
 
 import {PAGES} from './core/config/pages.config';
+import {Education} from './features/resume/pages/education/education';
 
 export const routes: Routes = [
   {
@@ -23,9 +24,14 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       {
-        path: ResumeRoutesEnum.ABOUT_ME,
+        path: PAGES.ABOUT_ME.routeName,
         component: AboutMe,
         data: { title: PAGES.ABOUT_ME.filename }
+      },
+      {
+        path: PAGES.EDUCATION.routeName,
+        component: Education,
+        data: { title: PAGES.EDUCATION.filename }
       }
     ]
   },

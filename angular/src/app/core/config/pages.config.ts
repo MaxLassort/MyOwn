@@ -3,18 +3,21 @@ import {ResumeRoutesEnum, RouteEnum} from '../../route.enum';
 
 export const PAGES = {
   HOME: {
+    routeName: 'home',
     filename: 'home',
     path: `/${RouteEnum.HOME}`,
     icon: 'home',
     title: 'Home'
   },
   GAME: {
+    routeName: 'game',
     filename: 'game.exe',
     path: `/${RouteEnum.GAME}`,
     icon: 'sports_esports',
     title: 'Game'
   },
   ABOUT_ME: {
+    routeName: 'about-me',
     filename: 'about_me.html',
     path: `/${RouteEnum.RESUME}/${ResumeRoutesEnum.ABOUT_ME}`,
     icon: 'html',
@@ -28,6 +31,7 @@ export const PAGES = {
     title: 'Skills'
   },
   EDUCATION: {
+    routeName: 'education',
     filename: 'education.md',
     path: `/${RouteEnum.RESUME}/education`, // À définir plus tard
     icon: 'draft',
@@ -39,4 +43,4 @@ export const PAGES = {
     icon: 'javascript',
     title: 'Experience'
   }
-} as const;
+} ;

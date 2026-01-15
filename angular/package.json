@@ -45,6 +45,7 @@
     "@angular/localize": "^21.0.3",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/express": "^5.0.1",
+
     "@types/node": "^20.17.19",
     "daisyui": "^5.5.14",
     "jsdom": "^27.1.0",

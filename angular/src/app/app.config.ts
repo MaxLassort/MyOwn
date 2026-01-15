@@ -6,6 +6,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import {IMAGE_LOADER, ImageLoaderConfig} from '@angular/common';
 import {environment} from '../environments/environment';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -20,6 +21,6 @@ export const appConfig: ApplicationConfig = {
         // Local
         return config.src;
       }
-    }
+    },
   ]
 };

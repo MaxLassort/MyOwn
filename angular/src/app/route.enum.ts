@@ -4,5 +4,6 @@ export enum RouteEnum {
   HOME = ''
 }
 export enum ResumeRoutesEnum {
-  ABOUT_ME = 'about-me'
+  ABOUT_ME = 'about-me',
+  EDUCATION = 'education'
 }
