@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
 @plugin "daisyui";
 
 /* Polices */
@@ -68,6 +69,7 @@
 
   /* Accent */
   --color-accent: oklch(55.4% 0.046 257.417);
+  --color-accent-content: #bcc8d1;
 
   /* Primary */
   --color-primary: #00ff41;
@@ -95,6 +97,7 @@ strong {
 
 :root {
   --font-pixelify: 'Pixelify Sans', cursive;
+  font-family: 'JetBrains Mono', serif
 }
 
 /* Markdown Container Style - Compatible Tailwind v4 avec Media Queries */
@@ -146,3 +149,4 @@ strong {
     @apply text-primary;
   }
 }
+

@@ -1,0 +1,27 @@
+
+<div class="timeline-end mb-10 ml-2">
+  <div class="flex justify-between items-center">
+    <div class="text-base md:text-lg font-bold text-base-content mt-1">
+      <span class="text-primary" aria-hidden="true">## </span>
+      {{ this.experience().title }}
+    </div>
+    <time class="text-tracking-wide uppercase opacity-70 text-xs">
+<!--      {{this.experience().period.start | date:'MMM YYYY'}} - {{this.experience().period.start | date:'MMM YYYY'}}-->
+    </time>
+  </div>
+  <div class="mb-2 font-bold text-primary">
+    <span class="text-primary" aria-hidden="true">**</span>
+      {{this.experience().company}}
+    <span class="text-primary" aria-hidden="true">**</span>
+  </div>
+  <p class="text-xs md:text-base text-neutral-content">
+    {{
+      this.experience().description
+    }}
+  </p>
+  <div class="flex flex-wrap gap-2 mt-2">
+    @for(tech of this.experience().techs; track tech){
+      <app-tech-badge label="{{tech}}"/>
+    }
+  </div>
+</div>

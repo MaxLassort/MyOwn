@@ -1,27 +1,27 @@
 import {Routes} from '@angular/router';
 import {Game} from './features/game/components/game/game.component';
 import {Home} from './features/home/home';
-import {ResumeRoutesEnum, RouteEnum} from "./route.enum";
 import {MainLayout} from './core/layout/main-layout/main-layout';
 import {AboutMe} from './features/resume/pages/about-me/about-me';
-
 import {PAGES} from './core/config/pages.config';
 import {Education} from './features/resume/pages/education/education';
+import {Experiences} from './features/resume/pages/experiences/experiences';
 
 export const routes: Routes = [
   {
-    path: RouteEnum.GAME,
+    path: PAGES.GAME.path.substring(1), // Enlève le '/' initial
     component: Game,
     data: { title: PAGES.GAME.filename }
   },
   {
-    path: RouteEnum.HOME,
+    path: '',
     component: Home,
     data: { title: PAGES.HOME.filename }
   },
   {
-    path: RouteEnum.RESUME,
+    path: 'resume',
     component: MainLayout,
+    data: { title: 'resume' },
     children: [
       {
         path: PAGES.ABOUT_ME.routeName,
@@ -32,8 +32,13 @@ export const routes: Routes = [
         path: PAGES.EDUCATION.routeName,
         component: Education,
         data: { title: PAGES.EDUCATION.filename }
+      },
+      {
+        path: PAGES.EXPERIENCE.routeName,
+        component: Experiences,
+        data: { title: PAGES.EXPERIENCE.filename }
       }
     ]
   },
-  { path: '**', redirectTo: RouteEnum.HOME }
+  { path: '**', redirectTo: '' }
 ];

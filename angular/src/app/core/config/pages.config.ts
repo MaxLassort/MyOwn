@@ -1,46 +1,43 @@
-import {ResumeRoutesEnum, RouteEnum} from '../../route.enum';
-
-
 export const PAGES = {
   HOME: {
     routeName: 'home',
     filename: 'home',
-    path: `/${RouteEnum.HOME}`,
+    path: '/',
     icon: 'home',
     title: 'Home'
   },
   GAME: {
     routeName: 'game',
     filename: 'game.exe',
-    path: `/${RouteEnum.GAME}`,
+    path: '/game',
     icon: 'sports_esports',
     title: 'Game'
   },
   ABOUT_ME: {
     routeName: 'about-me',
     filename: 'about_me.html',
-    path: `/${RouteEnum.RESUME}/${ResumeRoutesEnum.ABOUT_ME}`,
+    path: '/resume/about-me',
     icon: 'html',
     title: 'About Me'
-  },
-  // Placeholders pour les futurs fichiers
-  SKILLS: {
-    filename: 'skills.json',
-    path: `/${RouteEnum.RESUME}/skills`, // À définir plus tard
-    icon: 'draft',
-    title: 'Skills'
   },
   EDUCATION: {
     routeName: 'education',
     filename: 'education.md',
-    path: `/${RouteEnum.RESUME}/education`, // À définir plus tard
+    path: '/resume/education',
     icon: 'draft',
     title: 'Education'
   },
+  SKILLS: {
+    filename: 'skills.json',
+    path: '/resume/skills',
+    icon: 'draft',
+    title: 'Skills'
+  },
   EXPERIENCE: {
-    filename: 'experience.js',
-    path: `/${RouteEnum.RESUME}/experience`, // À définir plus tard
-    icon: 'javascript',
+    routeName: 'experiences',
+    filename: 'experiences.html',
+    path: '/resume/experiences',
+    icon: 'html',
     title: 'Experience'
   }
-} ;
+} as const;

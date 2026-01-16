@@ -1,0 +1,61 @@
+<div class="flex flex-col [&>p]:text-neutral-content ">
+  <h1 itemprop="jobTitle" class="text-xl md:text-4xl font-bold mb-4">
+    <span class="text-primary">></span>
+    <ng-container i18n>Full-Stack Developer</ng-container>
+    <span class="text-primary animate-pulse">|</span>
+  </h1>
+  <p>
+    loreim ipsum dolor sit amet loreim ipsum dolor sit ametloreim ipsum dolor sit ametloreim ipsum dolor sit ametloreim
+    ipsum dolor sit ametloreim ipsum dolor sit amet
+  </p>
+  <h2 class="text-primary font-bold tracking-wide flex uppercase justify-start items-center">
+    <span class="material-symbols-outlined mr-2">
+      code
+    </span>
+    technical_stack
+  </h2>
+  <div class="flex flex-wrap gap-1">
+    @for(technology of this.technologies; track technology){
+      <div class="badge bg-base-200 border-base-300 text-neutral-content rounded-xl gap-2 p-3">
+
+        <!-- Cas FontAwesome -->
+        @if (technology.icon) {
+          <fa-icon [icon]="['fab', technology.icon]"></fa-icon>
+        }
+
+        <!-- Cas URL externe (SVG/Image) -->
+        @if (technology.iconUrl) {
+          <img [src]="technology.iconUrl" [alt]="technology.name" class="w-3.5 h-3.5" />
+        }
+
+        <!-- Nom -->
+        <span>{{ technology.name }}</span>
+
+      </div>
+    }
+  </div>
+  <h2 class="text-primary font-bold tracking-wide flex uppercase justify-start items-center">
+    <span class="material-symbols-outlined mr-2">
+      timelapse
+    </span>
+    Professional_path
+  </h2>
+
+  <div class="mb-3">
+    <ul class="timeline timeline-vertical timeline-compact timeline-snap-icon">
+
+      <!-- Experience 1 -->
+    @for(experience of this.experiences; track experience){
+      <li>
+        <div class="timeline-middle">
+          <span class="material-symbols-outlined text-primary text-sm">circle</span>
+        </div>
+        <app-experience-item [experience]="experience"/>
+        <hr class="bg-base-300"/>
+      </li>
+    }
+
+    </ul>
+  </div>
+</div>
+
