@@ -96,3 +96,53 @@ strong {
 :root {
   --font-pixelify: 'Pixelify Sans', cursive;
 }
+
+/* Markdown Container Style - Compatible Tailwind v4 avec Media Queries */
+.markdown-container {
+  @apply font-mono p-4 max-w-7xl mx-auto text-xs text-neutral-content;
+
+  @media (min-width: 768px) {
+    @apply text-sm;
+  }
+
+  h1 {
+    @apply text-xl font-bold text-base-content mb-6 pb-2 border-b border-base-300;
+    @media (min-width: 768px) {
+      @apply text-2xl;
+    }
+  }
+
+  h2 {
+    @apply text-base font-bold text-base-content mb-2;
+    @media (min-width: 768px) {
+      @apply text-lg;
+    }
+  }
+
+  article {
+    @apply mb-4;
+  }
+
+  strong {
+    @apply font-bold text-base-content;
+  }
+
+  ul {
+    @apply list-none pl-0 space-y-1 ml-2;
+  }
+
+  li {
+    @apply text-[10px];
+    @media (min-width: 768px) {
+      @apply text-xs;
+    }
+  }
+
+  .meta {
+    @apply mb-3 flex items-center flex-wrap;
+  }
+
+  .markdown-syntax {
+    @apply text-primary;
+  }
+}
