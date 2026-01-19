@@ -1,4 +1,10 @@
-<div class="flex flex-col [&>p]:text-neutral-content ">
+<div class="flex flex-col [&>p]:text-neutral-content
+            [&>h2]:font-bold [&>h2]:tracking-wide [&>h2]:flex [&>h2]:w-full
+            [&>h2]:my-3 [&>h2]:uppercase
+            [&>h2]:justify-start
+            [&>h2]:items-center
+            [&>h2]:text-2xl
+">
   <h1 itemprop="jobTitle" class="text-xl md:text-4xl font-bold mb-4">
     <span class="text-primary">></span>
     <ng-container i18n>Full-Stack Developer</ng-container>
@@ -8,15 +14,15 @@
     loreim ipsum dolor sit amet loreim ipsum dolor sit ametloreim ipsum dolor sit ametloreim ipsum dolor sit ametloreim
     ipsum dolor sit ametloreim ipsum dolor sit amet
   </p>
-  <h2 class="text-primary font-bold tracking-wide flex uppercase justify-start items-center">
-    <span class="material-symbols-outlined mr-2">
+  <h2 >
+    <span class="material-symbols-outlined mr-2 text-primary">
       code
     </span>
     technical_stack
   </h2>
-  <div class="flex flex-wrap gap-1">
+  <div class="flex flex-wrap gap-2">
     @for(technology of this.technologies; track technology){
-      <div class="badge bg-base-200 border-base-300 text-neutral-content rounded-xl gap-2 p-3">
+      <div class="badge bg-base-200 border-base-300 text-neutral-content rounded-xl p-2 ">
 
         <!-- Cas FontAwesome -->
         @if (technology.icon) {
@@ -34,28 +40,32 @@
       </div>
     }
   </div>
-  <h2 class="text-primary font-bold tracking-wide flex uppercase justify-start items-center">
-    <span class="material-symbols-outlined mr-2">
+  <h2 >
+    <span class="material-symbols-outlined mr-2  text-primary">
       timelapse
     </span>
     Professional_path
   </h2>
+  <div class="mb-3 w-full">
+    <ul class="timeline timeline-vertical timeline-snap-icon timeline-compact">
 
-  <div class="mb-3">
-    <ul class="timeline timeline-vertical timeline-compact timeline-snap-icon">
-
-      <!-- Experience 1 -->
-    @for(experience of this.experiences; track experience){
-      <li>
-        <div class="timeline-middle">
-          <span class="material-symbols-outlined text-primary text-sm">circle</span>
-        </div>
-        <app-experience-item [experience]="experience"/>
-        <hr class="bg-base-300"/>
-      </li>
-    }
+      @for(experience of this.experiences; track experience; let last = $last; let index = $index){
+        <li >
+          <div class="timeline-middle">
+            <span class="material-symbols-outlined text-primary text-sm">circle</span>
+          </div>
+          <div class="timeline-end slide-in"
+               [style.animationDelay]="(index * 250) + 'ms'"
+          >
+            <app-experience-item [experience]="experience"/>
+          </div>
+          @if(!last) {
+            <hr />
+          }
+        </li>
+      }
 
     </ul>
   </div>
-</div>
 
+</div>
