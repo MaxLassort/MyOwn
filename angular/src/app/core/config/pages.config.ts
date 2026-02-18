@@ -28,6 +28,7 @@ export const PAGES = {
     title: 'Education'
   },
   SKILLS: {
+    routeName: 'skills',
     filename: 'skills.json',
     path: '/resume/skills',
     icon: 'draft',

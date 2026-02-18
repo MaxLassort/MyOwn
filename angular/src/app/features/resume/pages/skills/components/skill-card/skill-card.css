@@ -1,0 +1,14 @@
+@keyframes shadow-pop-tr {
+  0% {
+    transform: translateX(0) translateY(0);
+    box-shadow: none;
+  }
+  100% {
+    transform: translateX(-8px) translateY(8px);
+    box-shadow: 8px 8px 0 0 hsl(var(--n));
+  }
+}
+
+.animate-shadow-pop-tr {
+  animation: shadow-pop-tr 0.3s ease forwards;
+}

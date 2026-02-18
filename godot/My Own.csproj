@@ -3,4 +3,10 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>MyOwn</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="scenes\templates\" />
+    <Folder Include="scripts\interactions\Buildings\Coffee\" />
+    <Folder Include="scripts\Player\" />
+    <Folder Include="Shared\utils\" />
+  </ItemGroup>
 </Project>

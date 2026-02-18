@@ -5,7 +5,7 @@
 
     <div class="flex justify-center items-center gap-4">
       <div class="choice__pill-wrapper" iconButton>
-        <a [routerLink]="RouteEnum.RESUME">
+        <a [routerLink]="'resume' + '/'+ PAGES.ABOUT_ME.routeName">
           <img
             id="blue"
             src="assets/buttons/bluePill.svg"
@@ -15,7 +15,7 @@
         </a>
       </div>
       <div class="choice__pill-wrapper" iconButton>
-        <a [routerLink]="RouteEnum.GAME">
+        <a [routerLink]="PAGES.GAME.routeName">
           <img
             id="red"
             src="assets/buttons/redPill.svg"

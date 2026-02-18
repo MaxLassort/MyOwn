@@ -4,7 +4,6 @@ import {NgTemplateOutlet} from '@angular/common';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {PAGES} from '../../config/pages.config';
 import {ThemeService} from '../../services/theme.service';
-import {RouteEnum} from '../../../route.enum';
 
 type TreeNode = {
   name: string;
@@ -24,7 +23,7 @@ type TreeNode = {
 export class Navigation {
   themeService = inject(ThemeService);
   linkClicked = output<void>();
-  protected readonly RouteEnum = RouteEnum;
+
 
   readonly nodes: TreeNode[] = [
     {

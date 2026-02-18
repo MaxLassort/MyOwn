@@ -1,6 +1,6 @@
 using Godot;
-
-namespace MyOwn.scenes
+//TODO à revoir pour utiliser l'autre fichier
+namespace MyOwn.interactionZone
 {
     public partial class InteractionZone : Area2D
     {

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {IconButtonDirective} from '../../shared/directives/icon-button.directive';
 import {RouterLink} from '@angular/router';
-import {RouteEnum} from '../../route.enum';
 import {ThemeSelector} from '../../shared/components/theme-selector/theme-selector';
+import {PAGES} from '../../core/config/pages.config';
 
 @Component({
   selector: 'app-home',
@@ -15,5 +15,5 @@ import {ThemeSelector} from '../../shared/components/theme-selector/theme-select
   styleUrl: './home.css',
 })
 export class Home {
-  protected readonly RouteEnum = RouteEnum;
+  protected readonly PAGES = PAGES;
 }

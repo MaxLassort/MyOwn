@@ -1,0 +1,16 @@
+<div class="flex flex-col gap-2 w-full">
+  <h1 class="text-l md:text-4xl font-bold mb-4">
+    <span class="text-primary">"</span>Technical_competencies
+    <span class="text-primary">"</span>:
+    <span>[</span>
+  </h1>
+  <div class="flex justify-center md:justify-items-start px-5 flex-wrap gap-4">
+    @for (card of this.cards; track card) {
+      <app-skill-card [card]="card"></app-skill-card>
+    }
+
+  </div>
+
+
+  <span class="text-xl md:text-4xl font-bold mb-4 ">]</span>
+</div>

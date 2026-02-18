@@ -1,0 +1,37 @@
+
+
+<div class=" bg-neutral">
+  <div class="card group aspect-square bg-base-200 w-72 md:w75 md:h-80 h-72
+overflow-hidden rounded-none border border-base-300 transition-transform duration-300 ease-out hover:-translate-x-2 hover:translate-y-2
+
+">
+    <div class="card-body flex flex-col justify-between">
+      <div class="flex  transition-transform ease-out group-hover:scale-110">
+        <div class="inline-flex items-center justify-center bg-base-300/40 p-2 rounded w-fit tooltip tooltip-bottom
+
+"
+             [attr.data-tip]="this.card().category.name">
+          <fa-icon [icon]="this.card().category.icon" class="text-4xl"
+                   [class]="this.card().category.color"
+          ></fa-icon>
+        </div>
+        <div class="flex flex-col justify-center items-start ml-2 font-bold">
+          <h2 class="card-title font-bold">{{ this.card().name }}</h2>
+          <span [class]="this.card().category.color">{{ this.card().level }}</span>
+        </div>
+
+      </div>
+      <div >
+        <p class="text-justify text-xs md:text-sm text-ellipsis md:text-clip ">{{  this.card().description }}</p>
+      </div>
+      <div class="flex flex-wrap gap-1 w-full overflow-hidden">
+        @for (tag of this.card().tags; track tag) {
+          <div>
+            <app-containter classes="p-1 bg-base-300/40 text-center text-xs ">{{tag}}</app-containter>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
